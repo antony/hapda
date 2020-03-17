@@ -15,7 +15,7 @@ Define Hapi route handlers for serverless, lambda (req, res) endpoints.
 If like me, you like the idea of serverless but dislike the lambda / node http / express / polka API format, and prefer Hapi's routing, this allows you to do the following:
 
 ```js
-exports.someRoute = await hapda({
+exports.someRoute = hapda({
   method: 'GET',
   path: '/foo/bar',
   handler: () => {
@@ -35,5 +35,5 @@ const myMethod = async server => {
   server.plugins(...) // or routes, handlers, anything you can do with Hapi at all.
 }
 
-exports.someRoute = await hapda(myRoute, myMethod)
+exports.someRoute = hapda(myRoute, myMethod)
 ```
