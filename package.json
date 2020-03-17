@@ -1,0 +1,29 @@
+{
+  "name": "hapda",
+  "version": "0.0.0",
+  "description": "A bridge for serverless Hapi",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha **/**.spec.js"
+  },
+  "keywords": [
+    "hapi",
+    "lambda",
+    "serverless",
+    "aws",
+    "now",
+    "gcf",
+    "render"
+  ],
+  "author": "Antony Jones",
+  "license": "MIT",
+  "dependencies": {
+    "@hapi/hapi": "^19.1.1",
+    "@hapi/joi": "^17.1.1"
+  },
+  "devDependencies": {
+    "@hapi/code": "^8.0.1",
+    "mocha": "^7.1.0",
+    "node-fetch": "^2.6.0"
+  }
+}
