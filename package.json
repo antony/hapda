@@ -15,6 +15,7 @@
     "gcf",
     "render"
   ],
+  "repository": "antony/hapda",
   "author": "Antony Jones",
   "license": "MIT",
   "dependencies": {
