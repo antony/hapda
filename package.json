@@ -1,6 +1,6 @@
 {
   "name": "hapda",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A bridge for serverless Hapi",
   "main": "index.js",
   "scripts": {
