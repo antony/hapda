@@ -74,7 +74,7 @@ const route = {
   method: 'PUT',
   path: '/foo/bar',
   handler: () => {
-    return { lastCachedTime: server.methods.time()
+    return { lastCachedTime: server.methods.time() }
   }
 }
 
