@@ -28,7 +28,7 @@ exports.someRoute = hapda({
 
 and then publish your serverless function as normal.
 
-#### How do I use plugins?
+### How do I use plugins?
 
 You can access the entire Hapi instance by passing a method which is given the Hapi instance as a parameter.
 
@@ -40,7 +40,7 @@ const myMethod = async server => {
 exports.someRoute = hapda(myRoute, myMethod)
 ```
 
-##### An example with some caching and auth
+#### An example with some caching and auth
 
 The following example does two things:
 
@@ -74,7 +74,31 @@ const route = {
   method: 'PUT',
   path: '/foo/bar',
   handler: () => {
-    return { lastCachedTime: server.methods.time()
+    return { lastCachedTime: server.methods.time() }
+  }
+}
+
+exports.someRoute = hapda(route, setupServer)
+```
+
+### Troubleshooting
+
+#### Caching / Plugin X doesn't work.
+
+For reasons of speed, Hapda doesn't call `initialize()` on bootstrap. Normally, this function would be called by `server.start()` but because we don't call that, or bind to a port or listen for HTTP connections, it never gets called. If you find that you need to call `initialize()` to finalize plugin registration or start caching, you can do so using the server setup method:
+
+
+```js
+async function setupServer (server) {
+  await server.register(someComplexPlugin)
+  await server.initialize()
+}
+
+const route = {
+  method: 'GET',
+  path: '/foo/bar',
+  handler: () => {
+    return { foo: 'bar' }
   }
 }
 
