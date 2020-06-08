@@ -17,7 +17,7 @@ If like me, you like the idea of serverless but dislike the lambda / node http /
 ```js
 const { hapda } = require('hapda')
 
-exports.someRoute = hapda({
+module.exports = hapda({
   method: 'GET',
   path: '/foo/bar',
   handler: () => {
@@ -37,7 +37,7 @@ const myMethod = async server => {
   server.plugins(...) // or routes, handlers, anything you can do with Hapi at all.
 }
 
-exports.someRoute = hapda(myRoute, myMethod)
+module.exports = hapda(myRoute, myMethod)
 ```
 
 #### An example with some caching and auth
@@ -78,7 +78,7 @@ const route = {
   }
 }
 
-exports.someRoute = hapda(route, setupServer)
+module.exports = hapda(route, setupServer)
 ```
 
 ### Troubleshooting
@@ -102,5 +102,5 @@ const route = {
   }
 }
 
-exports.someRoute = hapda(route, setupServer)
+module.exports = hapda(route, setupServer)
 ```
